@@ -25,10 +25,11 @@ class CardGenerator(IGenerator, FileHelper):
             output = f.read()
 
         output = re.sub('{{ name }}', user.sliced_name, output)
-        if not user.org_acronym:
-            output = re.sub('{{ organization }} \|', user.org_acronym, output)
-        else:
-            output = re.sub('{{ organization }}', user.org_acronym, output)
+        # if not user.org_acronym:
+        #     output = re.sub('{{ organization }} \|', user.org_acronym, output)
+        # else:
+        #     output = re.sub('{{ organization }}', user.org_acronym, output)
+        output = re.sub('{{ organization }}', user.organization, output)
         output = re.sub('{{ rating }}', user.rank, output)
         output = re.sub('green', user.rating_color, output)
         output = re.sub('{{ max }}', user.max_rank, output)
